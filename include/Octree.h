@@ -43,8 +43,8 @@ class Octree
 {
 
 public:
-    Octree():m_resolution(0),m_root(NULL),m_depth(0) { }
-    Octree( const std::vector<Vec3>& pointCloud, unsigned resolution = 10 );
+    Octree():m_resolution(0),m_maxDepth(0),m_root(NULL),m_depth(0) { }
+    Octree( const std::vector<Vec3>& pointCloud, unsigned resolution = 10, unsigned maxDepth = 5000 );
 
     ~Octree()
     {
@@ -60,11 +60,12 @@ public:
 
 private:
     const unsigned m_resolution;
+    const unsigned m_maxDepth;
     OctreeNode* m_root;
     unsigned m_depth;
 
     //NEEDS TESTING:
-    unsigned buildNode( const std::vector<Vec3>& pointCloud, OctreeNode& o_node);
+    unsigned buildNode( const std::vector<Vec3>& pointCloud, unsigned depth, OctreeNode& o_node);
     //NEEDS TESTING:
     float findNearestPoint( const Vec3& point, const OctreeNode& node, Vec3& o_found ) const;
     //NEEDS TESTING:

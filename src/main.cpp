@@ -10,14 +10,12 @@
 
 int main()
 {
-    unsigned pointCnt = 1000000;//1000:1
+    unsigned pointCnt = 1000000000;
     std::cout << "Point count: " << pointCnt << std::endl;
 
     std::vector<Vec3> pointCloud;
     genRandPointCloud( pointCnt, -1.0f, 1.0f, pointCloud );
-//    for ( unsigned i = 0; i < pointCloud.size(); ++i ) {
-//        pointCloud[i].print();
-//    }
+
 
     Vec3 searchPoint = genRandPoint( -1.0f, 1.0f );
 
@@ -27,7 +25,7 @@ int main()
     std::cout << assertClosest( searchPoint , nearest, pointCloud ) << std::endl;
     std::cout << minSqrDist << std::endl;
 
-    Octree octree( pointCloud, 10 );
+    Octree octree( pointCloud, 1 );
     std::cout << octree.getDepth() << std::endl;
     Vec3 nearest2;
     float minSqr2Dist = octree.getNearestPoint( searchPoint, nearest2 );
