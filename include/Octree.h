@@ -9,10 +9,9 @@
 
 //TODO:
 //display tree using openGL
-//fix destructors inboth classes
-
-
 //FIX: pls figure out how to hide OctreeNode class? :(
+
+
 class OctreeNode
 {
 
@@ -56,6 +55,7 @@ public:
     }
 
     float getNearestPoint( const Vec3& point, Vec3& o_found ) const;
+
     unsigned getDepth() const { return m_depth; }
 
 private:
@@ -64,17 +64,15 @@ private:
     OctreeNode* m_root;
     unsigned m_depth;
 
-    //NEEDS TESTING:
     unsigned buildNode( const std::vector<Vec3>& pointCloud, unsigned depth, OctreeNode& o_node);
-    //NEEDS TESTING:
-    float findNearestPoint( const Vec3& point, const OctreeNode& node, Vec3& o_found ) const;
-    //NEEDS TESTING:
-    std::vector<Vec3> filterPointsForOctant( const std::vector<Vec3>& pointCloud, const Vec3& origin, unsigned octantIndex ) const;
-    //NEEDS TESTING:
-    Vec3 getBarycenterForPointCloud( const std::vector<Vec3>& pointCloud ) const;
-    //NEEDS TESTING:
-    unsigned getOctantForPoint( const Vec3& point, const Vec3& origin ) const;
 
+    float findNearestPoint( const Vec3& point, const OctreeNode& node, Vec3& o_found ) const;
+
+    std::vector<Vec3> filterPointsForOctant( const std::vector<Vec3>& pointCloud, const Vec3& origin, unsigned octantIndex ) const;
+
+    Vec3 getBarycenterForPointCloud( const std::vector<Vec3>& pointCloud ) const;
+
+    unsigned getOctantForPoint( const Vec3& point, const Vec3& origin ) const;
 };
 
 #endif // OCTREE_H

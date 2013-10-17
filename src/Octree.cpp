@@ -42,7 +42,6 @@ unsigned Octree::buildNode( const std::vector<Vec3>& pointCloud, unsigned depth 
     return maxDepth;
 }
 
-
 std::vector<Vec3> Octree::filterPointsForOctant( const std::vector<Vec3>& pointCloud, const Vec3& origin, unsigned octantIndex ) const
 {
     std::vector<Vec3> result;
@@ -56,7 +55,6 @@ std::vector<Vec3> Octree::filterPointsForOctant( const std::vector<Vec3>& pointC
 
     return result;
 }
-
 
 Vec3 Octree::getBarycenterForPointCloud( const std::vector<Vec3>& pointCloud ) const
 {
@@ -135,9 +133,6 @@ float Octree::findNearestPoint( const Vec3& point, const OctreeNode& node, Vec3&
 
     return minSqrDist;
 }
-
-
-
 
 float OctreeNode::getNearestPoint( const Vec3& point, Vec3& o_found ) const
 {
