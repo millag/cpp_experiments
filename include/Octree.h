@@ -18,7 +18,7 @@ class OctreeNode
 public:
     Vec3 m_midPoint;
 //    list of child nodes of size 0-when leaf, 8-when internal
-//    index of the child calculated by: ( z > midPoint.z )<<2 + ( y > midPoint.y )<<1  + ( x > midPoint.x )
+//    index of the child calculated by: ( x < midPoint.x )<<2 + ( y < midPoint.y )<<1  + ( z < midPoint.z )<<0
     std::vector<OctreeNode*> m_children;
 //    empty when node is internal
     std::vector<Vec3> m_points;
