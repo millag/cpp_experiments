@@ -49,7 +49,7 @@ public:
     }
 
 
-    inline void print() const
+    void print() const
     {
         std::cout << "( " << m_x << ", " << m_y << ", " << m_z << " )" << std::endl;
     }
@@ -75,6 +75,11 @@ inline Vec3 operator*( const Vec3& lhs, float d )
     return Vec3( lhs.m_x * d , lhs.m_y * d , lhs.m_z * d );
 }
 
+inline Vec3 operator*( float d , const Vec3& rhs)
+{
+    return Vec3( rhs.m_x * d , rhs.m_y * d , rhs.m_z * d );
+}
+
 inline Vec3 operator/( const Vec3& lhs, float d )
 {
     return Vec3( lhs.m_x / d , lhs.m_y / d , lhs.m_z / d );
@@ -90,5 +95,10 @@ inline bool operator!=(const Vec3& lhs, const Vec3& rhs)
     return !operator==(lhs,rhs);
 }
 
+template<typename T>
+T lerp( float t, const T& p1, const T& p2 )
+{
+    return ( 1 - t ) * p1 + t * p2;
+}
 
 #endif // VEC3_H

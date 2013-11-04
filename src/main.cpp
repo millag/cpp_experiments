@@ -10,7 +10,7 @@
 
 int main()
 {
-    unsigned pointCnt = 1000000000;
+    unsigned pointCnt = 1000;
     std::cout << "Point count: " << pointCnt << std::endl;
 
     std::vector<Vec3> pointCloud;

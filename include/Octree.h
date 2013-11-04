@@ -59,6 +59,9 @@ public:
     unsigned getDepth() const { return m_depth; }
 
 private:
+    struct pimpl;
+    pimpl* m_internal;
+
     const unsigned m_resolution;
     const unsigned m_maxDepth;
     OctreeNode* m_root;

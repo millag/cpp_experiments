@@ -4,7 +4,7 @@
 
 #include "HelperFunctions.h"
 
-template<class T>
+template<typename T>
 T clamp(T v, T a, T b)
 {
     return std::max(a, std::min(v, b));

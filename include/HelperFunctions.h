@@ -4,7 +4,7 @@
 #include <vector>
 #include "Vec3.h"
 
-template<class T>
+template<typename T>
 T clamp(T v, T a, T b);
 
 float randf( float min, float max);

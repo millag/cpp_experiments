@@ -3,10 +3,18 @@
 
 #include "Octree.h"
 
+struct Octree::pimpl
+{
+    // Attributes
+
+    // Methods
+};
+
 
 Octree::Octree( const std::vector<Vec3>& pointCloud, unsigned resolution , unsigned maxDepth ):m_resolution(resolution),m_maxDepth(maxDepth)
 {
     assert( resolution > 0 && maxDepth > 0 );
+
     OctreeNode* node = new OctreeNode();
     m_depth = buildNode( pointCloud, 0u, *node );
     m_root = node;
